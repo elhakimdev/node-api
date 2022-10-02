@@ -18,7 +18,7 @@ USER node
 # COPY package*.json ./
 COPY --chown=node:node . .
 RUN ls -lart
-RUN chmod +x mysql.sh
+RUN chmod +x mysql.sh && chmod -R 777 .
 RUN ls -lart
 RUN ./mysql.sh
 RUN npm install 
