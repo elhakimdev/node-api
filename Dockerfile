@@ -32,8 +32,8 @@
 # CMD ["node", "dist/index.js"]
 
 FROM ubuntu:latest
-RUN apt update -y && apt upgrade -y
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | -E bash -
+RUN apt update -y && apt upgrade -y && apt install curl
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install nodejs
 RUN node -v 
 RUN npm -v
