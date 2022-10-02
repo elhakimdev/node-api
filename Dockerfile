@@ -36,3 +36,8 @@ RUN apk add --update nodejs-current npm
 RUN apk add mysql mysql-client
 RUN addgroup -S node && adduser -S node -G node
 USER node
+RUN node -v
+RUN npm -v
+RUN mysql -v
+
+
