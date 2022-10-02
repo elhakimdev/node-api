@@ -38,7 +38,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install nodejs
 RUN node -v 
 RUN npm -v
-RUN apt install mysql-server
+RUN apt install mysql-server -y
 RUN systemctl start mysql.service
 RUN mysql -v
 
