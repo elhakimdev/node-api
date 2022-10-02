@@ -17,7 +17,7 @@ USER node
 # COPY package*.json ./
 COPY --chown=node:node . .
 RUN ls -lart
-RUN ./mysql.sh
+RUN mysql.sh
 RUN npm install 
 RUN npx prisma db push
 RUN npm run build --prod
