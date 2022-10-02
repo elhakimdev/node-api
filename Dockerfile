@@ -3,9 +3,9 @@ EXPOSE 3306
 RUN docker-entrypoint.sh /bin/true
 
 FROM node:alpine as nodejs
-ENV API_URL=host.docker.internal:3030
+ENV API_URL=172.17.0.1:3030
 ENV APP_PORT=3030
-ENV MYSQL_HOST=host.docker.internal
+ENV MYSQL_HOST=172.17.0.1
 ENV MYSQL_PORT=3306
 ENV MYSQL_USER=skyhis
 ENV MYSQL_PASSWORD=skyhis
