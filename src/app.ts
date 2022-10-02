@@ -53,7 +53,7 @@ expand(config());
     public init() : void {
         this.express.listen(this.port, () => {
             console.log(`Express Server is listening on port ${this.port}`);
-            console.log(`Express Server ready at: http://${process.env.API_URL}:${this.port}`)
+            console.log(`Express Server ready at: http://${process.env.API_URL}`)
         })
     }
 
