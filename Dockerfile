@@ -14,7 +14,6 @@ USER node
 COPY --chown=node:node . .
 # COPY package*.json ./
 RUN npm install 
-RUN npm run build
+RUN npm run build --prod
 EXPOSE 3030
-
-CMD ["nodemon", "src/index.ts"]
+CMD ["node", "dist/index.js"]
