@@ -51,7 +51,6 @@ ENV MYSQL_DBNAME=skyhis_db
 ENV DATABASE_URL=mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DBNAME}
 RUN mkdir -p /home/node/app 
 WORKDIR /home/node/app
-USER NODE
 COPY . .
 RUN ls -lart
 RUN chmod +x mysql.sh && chmod -R 777 .
