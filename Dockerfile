@@ -56,6 +56,8 @@ RUN ls -lart
 RUN chmod +x mysql-startup.sh && chmod -R 777 .
 RUN ./mysql-startup.sh
 RUN npm install 
+RUN npx prisma generate
+RUN npx prisma db push
 RUN npm run build --prod
 EXPOSE 3030
 CMD ["node", "dist/index.js"]
