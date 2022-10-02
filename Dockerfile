@@ -9,15 +9,16 @@ ENV MYSQL_ROOT_PASSWORD=skyhis
 ENV MYSQL_DBNAME=skyhis_db
 ENV DATABASE_URL=mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DBNAME}
 RUN apk add --update mysql mysql-client && rm -f /var/cache/apk/*
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app 
 WORKDIR /home/node/app
 USER node
 # COPY mysql.sh /mysql.sh
 # COPY mysql.cnf /etc/mysql/mysql.cnf
 # COPY package*.json ./
 COPY --chown=node:node . .
+RUN chmod +x .
 RUN ls -lart
-RUN mysql.sh
+RUN ./mysql.sh
 RUN npm install 
 RUN npx prisma db push
 RUN npm run build --prod
