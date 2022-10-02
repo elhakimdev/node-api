@@ -34,8 +34,8 @@
 FROM alpine:latest
 RUN apk add --update nodejs-current npm
 RUN apk add mysql mysql-client
-RUN /etc/init.d/mariadb setup
-RUN /etc/init.d/mariadb start
+RUN /etc/init.d/mysql setup
+RUN /etc/init.d/mysql start
 RuN mysql_secure_installation
 RUN addgroup -S node && adduser -S node -G node
 USER node
