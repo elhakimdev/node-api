@@ -17,4 +17,4 @@ RUN npm install
 RUN npm run build
 EXPOSE 3030
 
-CMD [ "node", "dist/app.js" ]
+CMD ["npm run dev"]
