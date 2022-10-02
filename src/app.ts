@@ -29,7 +29,7 @@ expand(config());
         this.express.use(json)
         this.express.use(urlEncoded)
         this.express.use(cors())
-        this.express.use(morgan("combined"))
+        // this.express.use(morgan("combined"))
         this.port = port;
     }
 
