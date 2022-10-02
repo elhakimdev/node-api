@@ -38,8 +38,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install nodejs
 RUN node -v 
 RUN npm -v
-RUN apt install -y mysql-server
-RUN mysql --version
+# RUN apt install -y mysql-server
+# RUN mysql --version
 ENV API_URL=127.0.0.1:3030
 ENV APP_PORT=3030
 ENV MYSQL_HOST=127.0.0.1
@@ -52,18 +52,18 @@ ENV DATABASE_URL=mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_P
 RUN mkdir -p /home/node/app 
 WORKDIR /home/node/app
 COPY . .
-ADD bind_0.cnf /etc/mysql/conf.d/bind_0.cnf
+# ADD bind_0.cnf /etc/mysql/conf.d/bind_0.cnf
 RUN ls -lart
-RUN chmod +x mysql-startup.sh && chmod -R 777 .
-RUN lsof
+# RUN chmod +x mysql-startup.sh && chmod -R 777 .
+# RUN lsof
 # setup our entry point
 # ADD init.sh /init.sh
 # RUN chmod 755 /*.sh
 # ENTRYPOINT ["/init.sh"]
-RUN ./mysql-startup.sh
+# RUN ./mysql-startup.sh
 RUN npm install 
 RUN npx prisma generate
-RUN npx prisma db push
+# RUN npx prisma db push
 RUN npm run build --prod
 EXPOSE 3030
 CMD ["node", "dist/index.js"]
