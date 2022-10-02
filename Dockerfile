@@ -39,7 +39,7 @@ RUN apt-get install nodejs
 RUN node -v 
 RUN npm -v
 RUN apt install mysql-server -y
-RUN systemctl start mysql.service
+RUN service mysql start
 RUN mysql -v
 
 
