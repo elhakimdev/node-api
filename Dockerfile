@@ -1,9 +1,4 @@
-FROM mysql:latest
-EXPOSE 3306
-RUN mysql
-
-
-FROM node:alpine as node-stage
+FROM node:alpine
 ENV API_URL=host.docker.internal:3030
 ENV APP_PORT=3030
 ENV MYSQL_HOST=host.docker.internal
@@ -19,6 +14,7 @@ USER node
 COPY --chown=node:node . .
 # COPY package*.json ./
 RUN npm install 
+RUN npx prisma db push
 RUN npm run build --prod
 EXPOSE 3030
 CMD ["node", "dist/index.js"]
