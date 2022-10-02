@@ -42,7 +42,6 @@ RUN apt install mysql-server -y \
     && mkdir -p /var/lib/mysql /var/run/mysqld \
     && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
     && chmod 777 /var/run/mysqld
-RUN service mysql start
 RUN mysql -v
 
 
