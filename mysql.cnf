@@ -1,5 +1,5 @@
 [mysqld]
 user = root
-datadir = /app/mysql
+datadir = /home/node/app/mysql
 port = 3306
-log-bin = /app/mysql/mysql-bin
+log-bin = /home/node/app/mysql/mysql-bin
