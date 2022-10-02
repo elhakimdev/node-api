@@ -32,8 +32,14 @@
 # CMD ["node", "dist/index.js"]
 
 FROM ubuntu:latest
-RUN apt update && sudo apt upgrade
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+RUN apt update && apt upgrade
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | -E bash -
 RUN apt-get install nodejs
+RUN node -v 
+RUN npm -v
+RUN apt install mysql-server
+RUN systemctl start mysql.service
+RUN mysql -v
+
 
 
