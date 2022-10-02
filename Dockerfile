@@ -11,6 +11,7 @@ ENV DATABASE_URL=mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_P
 RUN apk add --update mysql mysql-client && rm -f /var/cache/apk/*
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app 
 WORKDIR /home/node/app
+VOLUME /home/node/app
 USER node
 # COPY mysql.sh /mysql.sh
 # COPY mysql.cnf /etc/mysql/mysql.cnf
