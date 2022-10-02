@@ -1,7 +1,7 @@
 FROM node:alpine
-ENV API_URL=host.docker.internal:3030
+ENV API_URL=localhost:3030
 ENV APP_PORT=3030
-ENV MYSQL_HOST=host.docker.internal
+ENV MYSQL_HOST=localhost
 ENV MYSQL_PORT=3306
 ENV MYSQL_USER=skyhis
 ENV MYSQL_PASSWORD=skyhis
