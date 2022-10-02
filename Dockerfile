@@ -17,4 +17,4 @@ RUN npm install
 RUN npm run build
 EXPOSE 3030
 
-CMD ["npm run dev"]
+CMD ["nodemon", "src/index.ts"]
