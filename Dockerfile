@@ -31,16 +31,9 @@
 # EXPOSE 3030
 # CMD ["node", "dist/index.js"]
 
-FROM alpine:latest
-RUN apk add --update nodejs-current npm
-RUN apk add mysql mysql-client
-RUN /etc/init.d/mysql setup
-RUN /etc/init.d/mysql start
-RuN mysql_secure_installation
-RUN addgroup -S node && adduser -S node -G node
-USER node
-RUN node -v
-RUN npm -v
-RUN mysql -v
+FROM ubuntu:latest
+RUN apt update && sudo apt upgrade
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+RUN apt-get install nodejs
 
 
