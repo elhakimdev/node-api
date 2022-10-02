@@ -1,2 +1,2 @@
 #!/bin/bash
-mysqld
+service mysql start
