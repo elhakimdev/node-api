@@ -33,7 +33,7 @@
 
 FROM ubuntu:latest
 RUN apt update -y && apt upgrade -y 
-RUN apt install curl
+RUN apt install curl -y
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install nodejs
 RUN node -v 
