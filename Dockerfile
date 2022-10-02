@@ -52,9 +52,14 @@ ENV DATABASE_URL=mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_P
 RUN mkdir -p /home/node/app 
 WORKDIR /home/node/app
 COPY . .
+ADD bind_0.cnf /etc/mysql/conf.d/bind_0.cnf
 RUN ls -lart
 RUN chmod +x mysql-startup.sh && chmod -R 777 .
-RUN ./mysql-startup.sh
+# setup our entry point
+# ADD init.sh /init.sh
+# RUN chmod 755 /*.sh
+# ENTRYPOINT ["/init.sh"]
+# RUN ./mysql-startup.sh
 RUN npm install 
 RUN npx prisma generate
 RUN npx prisma db push
