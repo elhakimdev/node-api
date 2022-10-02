@@ -53,7 +53,7 @@ RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 COPY . .
 RUN ls -lart
-RUN chmod +x mysql.sh && chmod -R 777 .
+RUN chmod +x mysql-startup.sh && chmod -R 777 .
 RUN ./mysql-startup.sh
 RUN npm install 
 RUN npm run build --prod
