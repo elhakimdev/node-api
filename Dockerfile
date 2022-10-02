@@ -1,4 +1,4 @@
-FROM alpine:latest as mysql
+FROM alpine:latest
 MAINTAINER WangXian <xian366@126.com>
 # Environment variables for docker-compose command
 
