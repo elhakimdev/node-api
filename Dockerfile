@@ -39,6 +39,7 @@ RUN apt-get install nodejs
 RUN node -v 
 RUN npm -v
 RUN apt install mysql-server -y
+RUN chmod 755 /var/lib/mysql/mysql
 RUN service mysql start
 RUN mysql -v
 
