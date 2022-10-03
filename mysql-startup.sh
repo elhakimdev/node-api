@@ -1,9 +1,6 @@
 #!/bin/bash
 echo "Starting the mysql daemon server"
-service mysql start
-mysql --help
-exec sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-service mysql restart
+mysqld_safe
 if [ -n "$MYSQL_PASSWORD" ] ; then
 
 	TEMP_FILE='/tmp/mysql-first-time.sql'
