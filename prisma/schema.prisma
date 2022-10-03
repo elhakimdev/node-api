@@ -45,7 +45,7 @@ model Todo {
     priority String
     created_at DateTime
     updated_at DateTime @updatedAt
-    deleted_at DateTime
+    deleted_at DateTime?
     activity Activity @relation(fields: [activity_group_id], references: [id])
     activity_group_id Int
 }

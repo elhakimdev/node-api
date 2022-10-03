@@ -136,7 +136,7 @@ export const ActivityController = {
                 }
             })
 
-            res.status(404).json({
+            res.status(200).json({
                 status: "Success",
                 message: "Success",
                 data: updated
