@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "Starting the mysql daemon server"
-mysqld_safe
+systemctl enable mysql.service
+systemctl status mysql.service
+systemctl start mysql.service
 if [ -n "$MYSQL_PASSWORD" ] ; then
 
 	TEMP_FILE='/tmp/mysql-first-time.sql'
@@ -17,6 +19,7 @@ fi
 
 # execute the command supplied
 exec "$@"
+systemctl restart mysql.service
 
 npm install
 npm install 
