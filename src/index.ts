@@ -11,8 +11,8 @@ export const parser = {
     urlEncoded: express.urlencoded({extended: true})
 }
 expand(config());
-const PORT: string | any = process.env.APP_PORT || 3030;
-export const Application = ExpressApplication.getInstance(PORT);
+// const PORT: string | any = process.env.APP_PORT || 3030;
+export const Application = ExpressApplication.getInstance(process.env.APP_PORT as string);
 Application.useRouter("/activity-groups", ActivityRouter);
 Application.useRouter("/todo-items", TodoItemRouter);
 Application.init();

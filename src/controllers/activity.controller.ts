@@ -27,6 +27,7 @@ export const ActivityController = {
                 })
             }
         } catch (error) {
+            console.log(error)
             res.status(500).json({
                 status: "Error",
                 message: "Error",
@@ -66,6 +67,7 @@ export const ActivityController = {
             }
 
         } catch (error) {
+            console.log(error)
             res.status(500).json({
                 status: "Error",
                 message: "Internal Server Error",
@@ -102,6 +104,7 @@ export const ActivityController = {
                 data: result
             })
         } catch (error) {
+            console.log(error)
             if(error instanceof Prisma.PrismaClientKnownRequestError){
                 if(error.code === 'P2002'){
                     res.status(500).json({
@@ -139,7 +142,7 @@ export const ActivityController = {
                 data: updated
             })
         } catch (error) {
-            // console.log(error)
+            console.log(error)
             if(error instanceof Prisma.PrismaClientKnownRequestError){
                 if(error.code === 'P2025'){
                     res.status(500).json({
@@ -172,7 +175,7 @@ export const ActivityController = {
                 data: {}
             })
         } catch (error) {
-            // console.log(error)
+            console.log(error)
             if(error instanceof Prisma.PrismaClientKnownRequestError){
                 if(error.code === 'P2025'){
                     res.status(500).json({
