@@ -31,7 +31,7 @@ RUN npm install
 EXPOSE 3306 33060
 EXPOSE 3030
 # CMD ["node", "dist/index.js"]
-CMD echo mysqld; echo npm run build --prod; echo npx prisma generate; echo npx prisma db push; echo node dist/index.js;
+CMD echo mysqld; echo npm run build --prod; echo npx prisma generate; echo npx prisma db push; echo node dist/index.js
 
 
 
