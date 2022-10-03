@@ -15,6 +15,7 @@ RUN ls -lart
 RUN rm -rf prisma
 RUN ls -lart
 RUN npm install 
+RUN npx prisma generate
 RUN npm run build --prod
 RUN cp .env.example .env
 EXPOSE 3030
