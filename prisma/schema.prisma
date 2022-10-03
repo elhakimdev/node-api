@@ -26,17 +26,19 @@ datasource db {
 //   authorId  Int
 // }
 
-model Activities {
+model Activity {
+  @@map("activites")
   id  Int @id @default(autoincrement())
   email String  @unique
   title  String
   created_at DateTime
   updated_at DateTime @updatedAt
   deleted_at DateTime?
-  todos Todos[]
+  todos Todo[]
 }
 
-model Todos {
+model Todo {
+  @@map("todos")
     id Int @id @default(autoincrement())
     title String
     is_active Boolean
@@ -44,6 +46,6 @@ model Todos {
     created_at DateTime
     updated_at DateTime @updatedAt
     deleted_at DateTime
-    activity Activities @relation(fields: [activity_group_id], references: [id])
+    activity Activity @relation(fields: [activity_group_id], references: [id])
     activity_group_id Int
 }
