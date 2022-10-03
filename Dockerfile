@@ -104,10 +104,15 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 USER node
 COPY --chown=node:node . .
+COPY config/ /etc/mysql/
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+ENTRYPOINT ["docker-entrypoint.sh"]
 RUN npm install 
 RUN npm run build --prod
 RUn npx prisma generate
 RUN npx prisma db push
+EXPOSE 3306 33060
 EXPOSE 3030
 CMD ["node", "dist/index.js"]
 
