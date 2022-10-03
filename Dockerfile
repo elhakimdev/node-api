@@ -24,7 +24,8 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 USER node
 COPY --chown=node:node . .
-# RUN npm install 
+RUN npm install 
+RUN npm run build --prod
 EXPOSE 3306 33060
 EXPOSE 3030
 # CMD ["node", "dist/index.js"]
