@@ -11,11 +11,8 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 USER node
 COPY --chown=node:node . .
-RUN ls -lart
-RUN rm -rf prisma
-RUN ls -lart
 RUN npm install 
-RUN npx prisma generate
+RUN npx prisma generate --schema=./prisma/schema.prisma
 RUN npm run build --prod
 RUN cp .env.example .env
 EXPOSE 3030
