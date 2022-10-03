@@ -24,14 +24,13 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 USER node
 COPY --chown=node:node . .
-RUN npm install 
-# RUN npm run build --prod
-# RUn npx prisma generate
-# RUN npx prisma db push
+# RUN npm install 
 EXPOSE 3306 33060
 EXPOSE 3030
 # CMD ["node", "dist/index.js"]
-CMD ["/bin/bash", "-c", "mysqld;npm run build --prod;npx prisma generate;npx prisma db push;node dist/index.js"]
+# CMD ["/bin/bash", "-c", "mysqld;npm run build --prod;npx prisma generate;npx prisma db push;node dist/index.js"]
+CMD ["mysqld"]
+RUN npm install && npm run build --prod && npx prisma generate && npx prisma db push && node dist/index.js
 
 
 
