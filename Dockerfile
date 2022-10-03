@@ -31,8 +31,7 @@ RUN npm install
 EXPOSE 3306 33060
 EXPOSE 3030
 # CMD ["node", "dist/index.js"]
-RUN ls -lart
-CMD ["/bin/bash", "-c", "./startup.sh"]
+CMD ["/bin/bash", "-c", "mysqld;npm run build --prod;npx prisma generate;npx prisma db push;node dist/index.js"]
 
 
 
