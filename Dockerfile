@@ -106,7 +106,7 @@ USER node
 COPY --chown=node:node . .
 COPY config/ /etc/mysql/
 COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+RUN --chown=node:node ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 RUN npm install 
 RUN npm run build --prod
