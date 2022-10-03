@@ -7,7 +7,7 @@
     "build": "tsc",
     "dev": "npx prisma db push && nodemon ./src/index.ts",
     "start": "npx prisma db push --skip-generate && node ./dist/index.js",
-    "app:start": "concurrently \"npx prisma db push\" \"node ./dist/index.js\""
+    "app:start": "concurrently \"npx prisma migrate deploy\" \"node ./dist/index.js\""
   },
   "keywords": [],
   "author": "",
