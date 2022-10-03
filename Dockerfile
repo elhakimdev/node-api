@@ -163,12 +163,11 @@ RUN node -v
 RUN npm -v
 RUN ls -lart
 RUN mkdir -p /home/node/app/node_modules && chown -R mysql:mysql /home/node/app 
-WORKDIR /home/node/app
-COPY --chown=mysql:mysql . .
+COPY --chown=mysql:mysql . /home/node/app
 # Config files
-COPY config/ /etc/mysql/
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+COPY --chown=mysql:mysql /home/node/app/config/ /etc/mysql/
+COPY --chown=mysql:mysql /home/node/app/docker-entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-entrypoint.sh /docker-entrypoint.sh # backwards compat
 RUN ls -lart
 ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 3306 33060 3030
