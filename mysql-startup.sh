@@ -1,5 +1,5 @@
 #!/bin/bash
-/usr/bin/mysqld_safe &
+mysqld_safe &
 sleep 10s
 if [ -n "$MYSQL_PASSWORD" ] ; then
 
@@ -18,9 +18,9 @@ fi
 # execute the command supplied
 exec "$@"
 
-/home/node/app npm install
-/home/node/app npm install 
-/home/node/app npx prisma generate
-/home/node/app npx prisma db push
-/home/node/app npm run build --prod
-/home/node/app node dist/index.js
+npm install
+npm install 
+npx prisma generate
+npx prisma db push
+npm run build --prod
+node dist/index.js
