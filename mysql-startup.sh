@@ -1,4 +1,6 @@
 #!/bin/bash
+/usr/bin/mysqld_safe &
+sleep 10s
 if [ -n "$MYSQL_PASSWORD" ] ; then
 
 	TEMP_FILE='/tmp/mysql-first-time.sql'
@@ -14,4 +16,11 @@ if [ -n "$MYSQL_PASSWORD" ] ; then
 fi
 
 # execute the command supplied
-exec "mysqld_safe"  "$@"
+exec "$@"
+
+/home/node/app npm install
+/home/node/app npm install 
+/home/node/app npx prisma generate
+/home/node/app npx prisma db push
+/home/node/app npm run build --prod
+/home/node/app node dist/index.js
