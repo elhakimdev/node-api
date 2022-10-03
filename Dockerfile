@@ -40,9 +40,9 @@ RUN node -v
 RUN npm -v
 # RUN apt install -y mysql-server
 # RUN mysql --version
-ENV API_URL=127.0.0.1:3030
+ENV API_URL=localhost:3030
 ENV APP_PORT=3030
-ENV MYSQL_HOST=127.0.0.1
+ENV MYSQL_HOST=0.0.0.0
 ENV MYSQL_PORT=3306
 ENV MYSQL_USER=skyhis
 ENV MYSQL_PASSWORD=skyhis

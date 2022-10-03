@@ -14,4 +14,4 @@ if [ -n "$MYSQL_PASSWORD" ] ; then
 fi
 
 # execute the command supplied
-exec "$@"
+exec "mysqld_safe"  "$@"
