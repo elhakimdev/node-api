@@ -435,9 +435,9 @@ if ! _is_sourced; then
 	_main "$@"
 fi
 
-/home/node/app/npm install
-/home/node/app/npm install 
-/home/node/app/npx prisma generate
-/home/node/app/npx prisma db push
-/home/node/app/npm run build --prod
-/home/node/app/node dist/index.js
+# /home/node/app/npm install
+# /home/node/app/npm install 
+# /home/node/app/npx prisma generate
+# /home/node/app/npx prisma db push
+# /home/node/app/npm run build --prod
+# /home/node/app/node dist/index.js
