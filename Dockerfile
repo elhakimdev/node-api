@@ -87,7 +87,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 3306 33060
-CMD ["mysqld"]
+# CMD ["mysqld"]
 
 # install node js
 FROM node:alpine as nodejs
