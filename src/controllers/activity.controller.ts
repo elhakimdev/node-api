@@ -12,7 +12,7 @@ export const ActivityController = {
      */
     index: async (req: Request, res: Response) => {
         try {
-            const data = await prisma.activityGroup.findMany()
+            const data = await prisma.activities.findMany()
             if(data.length === 0){
                 res.status(200).json({
                     status: "Success",
@@ -46,7 +46,7 @@ export const ActivityController = {
      */
     show: async (req: Request, res: Response) => {
         try {
-            const data = await prisma.activityGroup.findUnique({
+            const data = await prisma.activities.findUnique({
                 where: {
                     id: Number(req.params.id)
                 }
@@ -87,7 +87,7 @@ export const ActivityController = {
         const {email, title} = req.body;
         try {
 
-            const result = await prisma.activityGroup.create({
+            const result = await prisma.activities.create({
                 data: {
                     email: email,
                     title: title,
@@ -126,7 +126,7 @@ export const ActivityController = {
     update: async (req: Request, res: Response) => {
         try {
             const {title, email} = req.body
-            const updated = await prisma.activityGroup.update({
+            const updated = await prisma.activities.update({
                 where: {
                     id: Number(req.params.id)
                 }, 
@@ -163,7 +163,7 @@ export const ActivityController = {
      */
     delete: async (req: Request, res: Response) => {
         try {
-            await prisma.activityGroup.delete({
+            await prisma.activities.delete({
                 where: {
                     id: Number(req.params.id)
                 }
