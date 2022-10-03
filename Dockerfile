@@ -42,7 +42,7 @@ RUN npm -v
 # RUN mysql --version
 ENV API_URL=localhost:3030
 ENV APP_PORT=3030
-ENV MYSQL_HOST=0.0.0.0
+ENV MYSQL_HOST=localhost
 ENV MYSQL_PORT=3306
 ENV MYSQL_USER=skyhis
 ENV MYSQL_PASSWORD=skyhis
@@ -57,6 +57,7 @@ RUN ls -lart
 # RUN chmod +x mysql-startup.sh && chmod -R 777 .
 # RUN lsof
 # setup our entry point
+RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 ADD mysql-startup.sh /mysql-startup.sh
 RUN chmod 755 /*.sh
 # ENTRYPOINT ["/mysql-startup.sh"]

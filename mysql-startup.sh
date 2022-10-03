@@ -1,5 +1,6 @@
 #!/bin/bash
 exec /usr/sbin/mysqld_safe
+echo "Starting the mysql daemon server"
 service mysql start
 if [ -n "$MYSQL_PASSWORD" ] ; then
 
