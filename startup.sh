@@ -1,6 +1,7 @@
 #! /bin/bash
 mysqld
-npm run build
-npx prisma generate
-npx prisma db push
+npm install 
+npm run build --prod 
+npx prisma generate 
+npx prisma db push 
 node dist/index.js
