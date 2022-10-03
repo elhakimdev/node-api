@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "npx prisma db push && nodemon ./src/index.ts",
-    "start": "npx prisma migrate dev --name init && node ./dist/index.js"
+    "start": "npx prisma db push --preview-feature && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
