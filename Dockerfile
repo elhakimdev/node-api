@@ -17,7 +17,7 @@ RUN npm run build --prod
 RUN cp .env.example .env
 RUN ls -lart | cat .env
 EXPOSE 3030
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "app:start"]
 
 
 
