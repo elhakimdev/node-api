@@ -1,6 +1,6 @@
 #!/bin/bash
-mysqld_safe &
-sleep 10s
+exec /usr/sbin/mysqld_safe
+service mysql start
 if [ -n "$MYSQL_PASSWORD" ] ; then
 
 	TEMP_FILE='/tmp/mysql-first-time.sql'
